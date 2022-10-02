@@ -92,3 +92,8 @@ button:hover {
     text-decoration: none;
     color: #ffffff;
 }*/
+
+#myCourses{
+  display: flex;
+  justify-content: center;
+}
