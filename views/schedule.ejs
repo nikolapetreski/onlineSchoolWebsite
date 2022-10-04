@@ -28,9 +28,10 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
-                    <li class="nav-item"> <a href="/" class="nav-link">Courses</a> </li>
+                    <li class="nav-item"> <a href="/schedule" class="nav-link">Sign Up</a> </li>
                    
-                 
+                    <li class="nav-item"> <a href="/mySchedule" class="nav-link">Schedule</a> </li>
+                   
                     
                     <li class="nav-item"> <a href="logIn.html" class="nav-link">Log In</a> </li>
                 </ul>
@@ -53,14 +54,28 @@
         </div>
     </section>
     <h1>
-        <center>My Courses</center>
+        <center>Add A New Course</center>
     </h1>
     <!--Learn Sections-->
     <!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
   
     <!--Courses-->
     <div id="myCourses">
-        <button>drop a course</button><button>add more courses</button>
+        
+
+        <div class="create-class-content">
+          <form action="./mySchedule" method="POST">
+            <label for="title">Class Name:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="snippet">Instructor:</label>
+            <input type="text" id="snippet" name="snippet" required>
+            <label for="body">Credit Hours:</label>
+            <textarea id="body" name="body" required></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
+      
+      
     </div>
     <!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/emmet/2.3.6/emmet.cjs.js"></script>

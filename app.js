@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
+const Class = require('./models/class');
 const app = express();
 
 const dbURI = 'mongodb+srv://ninj:dq3beK7QGFxCEcMu@cluster0.schqpii.mongodb.net/finalP?retryWrites=true&w=majority'
@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 
@@ -23,16 +24,37 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/courses', (req, res) => {
     
-    res.render('courses');
+app.get('/schedule', (req, res) => {
+    
+    res.render('schedule');
+})
+
+app.get('/mySchedule', (req, res) => {
+    Class.find().sort({ createdAt: -1 })
+    .then((result) => {
+        res.render('mySchedule', { classes: result, title: 'All Classes' });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
+
+app.post('/mySchedule', (req, res) => {
+    
+    const newClass = new Class(req.body);
+
+    newClass.save()
+    .then((result) => {
+        res.redirect('/mySchedule');
+    })
+    .catch((err) => {
+        console.log(err);
+    }
+    )
 })
 
 
-app.get('/confirmation', (req, res) => {
-    
-    res.render('confirmation');
-})
 
 
 app.get('/cart', (req, res) => {
@@ -54,6 +76,8 @@ app.get('/scheduleBuilder', (req, res) => {
     
     res.render('scheduleBuilder');
 })
+
+
 /*
     app.get('/about', (req, res) => {
         res.render('about', {title: 'About'});
