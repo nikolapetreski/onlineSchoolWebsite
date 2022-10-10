@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Class = require('./models/class');
+const Class = require('./models/Class');
 const app = express();
 
 const dbURI = 'mongodb+srv://ninj:dq3beK7QGFxCEcMu@cluster0.schqpii.mongodb.net/finalP?retryWrites=true&w=majority'
@@ -31,53 +31,55 @@ app.get('/schedule', (req, res) => {
 })
 
 app.get('/mySchedule', (req, res) => {
-    Class.find().sort({ createdAt: -1 })
+    
+    res.render('/classes', { title: 'My Schedule' });
+})
+
+
+app.get('/classes/create', (req, res) => {
+    res.render('create', { title: 'Create a new blog' });
+  });
+
+app.get('/classes', (req, res) => {
+Class.find().sort({ createdAt: -1 })
     .then((result) => {
-        res.render('mySchedule', { classes: result, title: 'All Classes' });
+        res.render('mySchedule', { title: 'All Classes', classes: result })
     })
     .catch((err) => {
         console.log(err);
     });
-});
+})
 
-app.post('/mySchedule', (req, res) => {
-    
+app.post('/classes', (req, res) => {
     const newClass = new Class(req.body);
 
     newClass.save()
-    .then((result) => {
-        res.redirect('/mySchedule');
-    })
-    .catch((err) => {
-        console.log(err);
-    }
-    )
+        .then((result) => {
+            res.redirect('/classes');
+        }
+        )
+        .catch((err) => {
+            console.log(err);
+        }
+        );
 })
 
+app.get('/classes/:id', (req, res) => {
+    const id = req.params.id;
+    Class.findById(id)
 
+        .then(result => {
+            res.render('details', { class: result, title: 'Class Details' })
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
-
-app.get('/cart', (req, res) => {
-    
-    res.render('cart');
 })
-
-app.get('/instructors', (req, res) => {
-    
-    res.render('instructors');
-})
-
-app.get('/login', (req, res) => {
-    
-    res.render('login');
-})
-
-app.get('/scheduleBuilder', (req, res) => {
-    
-    res.render('scheduleBuilder');
-})
-
-
+// 404 page
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+  });
 /*
     app.get('/about', (req, res) => {
         res.render('about', {title: 'About'});

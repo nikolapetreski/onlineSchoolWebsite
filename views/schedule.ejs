@@ -64,13 +64,13 @@
         
 
         <div class="create-class-content">
-          <form action="./mySchedule" method="POST">
-            <label for="title">Class Name:</label>
+          <form action="/classes" method="POST">
+            <label for="title">Class title:</label>
             <input type="text" id="title" name="title" required>
-            <label for="snippet">Instructor:</label>
+            <label for="snippet">Class snippet:</label>
             <input type="text" id="snippet" name="snippet" required>
-            <label for="body">Credit Hours:</label>
-            <textarea id="body" name="body" required></textarea>
+            <label for="body">Class body:</label>
+            <textarea id="body" required name="body"></textarea>
             <button>Submit</button>
           </form>
         </div>
