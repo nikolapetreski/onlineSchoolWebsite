@@ -67,14 +67,25 @@ app.post('/classes', (req, res) => {
 app.get('/classes/:id', (req, res) => {
     const id = req.params.id;
     Class.findById(id)
-
         .then(result => {
-            res.render('details', { class: result, title: 'Class Details' })
+            res.render('details', { newClass: result, title: 'Class Details' })
             })
             .catch(err => {
                 console.log(err);
             })
 
+})
+
+app.delete('/classes/:id', (req, res) => {
+    const id = req.params.id;
+
+    Class.findByIdAndDelete(id)
+        .then(result => {
+            res.json({ redirect: '/classes' });
+        })
+        .catch(err => {
+            console.log(err);
+        })
 })
 // 404 page
 app.use((req, res) => {

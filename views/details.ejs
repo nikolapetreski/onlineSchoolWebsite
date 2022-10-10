@@ -1,0 +1,79 @@
+<!------------------------------------------------------------------- Course: SDEV 255 Date: 20 Sept 2022 Final Project File: index.html Group: 3 - Nikola Petreski and Nativida Barlow Frontend Student: Nativida Barlow Backend Student: Nikola Petreski Instructor: Professor Zachary Hamby IVY Tech Community College ------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link data-rh="true" rel="shortcut icon" type="image" href="clueTitlePic.png" sizes="70x70">
+    <!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>School of Clue:: Home</title>
+</head>
+<!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
+
+<body>
+  <!--
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+        <div class="container"> <a href="#" class="navbar-brand"><b>School of CLUE</b> 
+              
+                    <p class="white-text-with-blue-shadow"> <br />
+                        </p>
+                </small></a> <button class="navbar-toggler type=botton" data-bs-toggle="collapse"
+                data-bs-target="#navmenu"> <span class="navbar-toggler-icon"></span> </button>
+            Barlow/Petreski-Group3-Fall2022-IVY Tech
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> <a href="index.ejs" class="nav-link">Home</a> </li>
+                    <li class="nav-item"> <a href="/courses" class="nav-link">Sign Up</a> </li>
+                    <li class="nav-item"> <a href="instructors.html" class="nav-link">Instructors</a> </li>
+                    <li class="nav-item"> <a href="scheduleBuilder.html" class="nav-link">Schedule Builder</a> </li>
+                    <li class="nav-item"> <a href="cart.html" class="nav-link">Cart</a> </li>
+                    <li class="nav-item"> <a href="logIn.html" class="nav-link">Log In</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div>
+    -->
+        <div class="details content">
+            
+            console.log(newClass.title)
+            <h2><%= newClass.title %></h2>
+            <div class="content">
+              <p><%= newClass.body %></p>
+         </div>
+            <a class="delete" data-doc="<%= newClass._id %>">delete</a>
+         
+          <script>
+            const trashcan = document.querySelector('a.delete');
+            trashcan.addEventListener('click', (e) => {
+              const endpoint = `/classes/${trashcan.dataset.doc}`;
+              fetch(endpoint, {
+                method: 'DELETE',
+              })
+              .then(response => response.json())
+              .then(data => window.location.href = data.redirect)
+              .catch(err => console.log(err));
+            });
+            
+          </script>
+
+
+</div>
+      </div>
+      </div>
+    
+    <!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emmet/2.3.6/emmet.cjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
