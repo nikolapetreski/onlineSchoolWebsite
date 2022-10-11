@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Class = require('./models/Class');
+const blogRoutes = require('./routes/blogRoutes');
 const app = express();
 
 const dbURI = 'mongodb+srv://ninj:dq3beK7QGFxCEcMu@cluster0.schqpii.mongodb.net/finalP?retryWrites=true&w=majority'
@@ -36,57 +36,7 @@ app.get('/mySchedule', (req, res) => {
 })
 
 
-app.get('/classes/create', (req, res) => {
-    res.render('create', { title: 'Create a new blog' });
-  });
-
-app.get('/classes', (req, res) => {
-Class.find().sort({ createdAt: -1 })
-    .then((result) => {
-        res.render('mySchedule', { title: 'All Classes', classes: result })
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-})
-
-app.post('/classes', (req, res) => {
-    const newClass = new Class(req.body);
-
-    newClass.save()
-        .then((result) => {
-            res.redirect('/classes');
-        }
-        )
-        .catch((err) => {
-            console.log(err);
-        }
-        );
-})
-
-app.get('/classes/:id', (req, res) => {
-    const id = req.params.id;
-    Class.findById(id)
-        .then(result => {
-            res.render('details', { newClass: result, title: 'Class Details' })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
-})
-
-app.delete('/classes/:id', (req, res) => {
-    const id = req.params.id;
-
-    Class.findByIdAndDelete(id)
-        .then(result => {
-            res.json({ redirect: '/classes' });
-        })
-        .catch(err => {
-            console.log(err);
-        })
-})
+app.use(blogRoutes);
 // 404 page
 app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
