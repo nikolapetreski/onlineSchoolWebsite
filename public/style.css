@@ -1,15 +1,14 @@
-
-body::before{
+body::before {
   display: block;
-  content: '';
+  content: "";
   height: 130px;
-  background-color:#212529;
+  background-color: #212529;
 }
 a {
   text-decoration: none;
 }
-@media(min-width: 768px){
-  .news-input{
+@media (min-width: 768px) {
+  .news-input {
     width: 50%;
   }
 }
@@ -26,7 +25,6 @@ button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   transition: 0.3s;
-  
 }
 
 button:hover {
@@ -37,45 +35,45 @@ button:hover {
   text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em Green;
 }
 .white-text-with-yellow-shadow {
-	 text-shadow: 1px 1px 2px green, 0 0 1em green, 0 0 0.2em Green;
+  text-shadow: 1px 1px 2px green, 0 0 1em green, 0 0 0.2em Green;
 }
 .white-text-with-black-shadow {
-	 text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 }
 .white-text-with-red-shadow {
-	 text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em red;
+  text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em red;
 }
 .white-text-with-yellow-shadow {
-	 text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em red;
+  text-shadow: 1px 1px 2px red, 0 0 1em black, 0 0 0.2em red;
 }
 .white-text-with-purple-shadow {
-	 text-shadow: 1px 1px 2px red, 0 0 1em purple, 0 0 0.2em purple;
+  text-shadow: 1px 1px 2px red, 0 0 1em purple, 0 0 0.2em purple;
 }
 .blue-text-with-white-shadow {
   text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
 }
-.standout{
+.standout {
   color: #1976d2;
   font-size: 1em;
 }
-.standout2{
+.standout2 {
   color: red;
   font-size: 1em;
 }
-.standout3{
-  color: #39FF14;
+.standout3 {
+  color: #39ff14;
   font-size: 1em;
 }
-.standout4{
+.standout4 {
   color: yellow;
   font-size: 1em;
 }
-.standout5{
+.standout5 {
   color: purple;
   font-size: 1em;
 }
-.standout6{
-  color: #FF7B19;
+.standout6 {
+  color: #ff7b19;
   font-size: 1em;
 }
 /*----STANDOUTS-END-------*/
@@ -84,25 +82,25 @@ button:hover {
     color: #ffffff;
 }*/
 
-form{
+form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#myCourses{
+#myCourses {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.details{
+.details {
   position: relative;
 }
 
-.delete{
+.delete {
   position: absolute;
   top: 0;
   right: 0;
@@ -113,14 +111,23 @@ form{
   cursor: pointer;
 }
 
-.delete:hover{
+.delete:hover {
   cursor: pointer;
-  box-shadow: 1px 2px 3px rgba( 0,0,0,0.2)
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .single {
-    display: block;
-    margin: 40px 0;
-    padding-left: 30px;
-    border-left: 6px solid crimson
+  display: block;
+  margin: 40px 0;
+  padding-left: 30px;
+  border-left: 6px solid crimson;
+}
+
+.xxx {
+  background-color: green;
+}
+
+#nav-item2 {
+  color: green;
+  text-decoration: none;
 }

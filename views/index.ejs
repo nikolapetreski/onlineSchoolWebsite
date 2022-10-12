@@ -26,11 +26,17 @@
             
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
+                    <% if (user) { %>
+                    
                     <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
                     <li class="nav-item"> <a href="/schedule" class="nav-link">Add Course</a> </li>    
                     <li class="nav-item"> <a href="/classes" class="nav-link">Schedule</a> </li>
+                    <li class="nav-item"> <a href="/logout" class="nav-link">Log Out</a> </li>
+                    <% } else { %>
+
                     <li class="nav-item"> <a href="/signup" class="nav-link">Sign Up</a> </li>             
                     <li class="nav-item"> <a href="/login" class="nav-link">Log In</a> </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -41,7 +47,7 @@
             <div class="d-sm-flex align-items-center justify-content-between">
                 <div>
                     <h1>School of CL<span class="standout2">U</span>E<br /> <span class="text-warning"> </span> </h1>
-                    
+                    <!--Barlow/Petreski-Group3-Fall2022-IVY Tech-->
                     <p class="lead my-4 white-text-with-red-shadow">  </p> <a
                         href="scheduleBuilder.html"></a>
                 </div>

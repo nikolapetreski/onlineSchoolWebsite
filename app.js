@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
+const { requireAuth } = require("./middleware/authMiddleware");
+const { checkUser } = require("./middleware/authMiddleware");
+
 const app = express();
 
 const dbURI =
@@ -20,15 +23,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("*", checkUser);
+app.get("/", requireAuth, (req, res) => {
   res.render("index");
 });
 
-app.get("/schedule", (req, res) => {
+app.get("/schedule", requireAuth, (req, res) => {
   res.render("schedule");
 });
 
-app.get("/mySchedule", (req, res) => {
+app.get("/mySchedule", requireAuth, (req, res) => {
   res.render("/classes", { title: "My Schedule" });
 });
 
