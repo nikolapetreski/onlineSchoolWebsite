@@ -25,6 +25,7 @@ button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   transition: 0.3s;
+  border-radius: 25px;
 }
 
 button:hover {
@@ -57,7 +58,7 @@ button:hover {
   font-size: 1em;
 }
 .standout2 {
-  color: red;
+  color: rgb(0, 203, 14);
   font-size: 1em;
 }
 .standout3 {
@@ -120,7 +121,11 @@ form {
   display: block;
   margin: 40px 0;
   padding-left: 30px;
-  border-left: 6px solid crimson;
+  border-left: 6px solid rgb(20, 220, 60);
+  background-color: #575757;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .xxx {
